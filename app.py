@@ -13,7 +13,7 @@ redis_client = Redis(
 @app.route('/')
 def hello():
     count = redis_client.incr('hits')
-    return f'Hello World! I have been seen {count} times.'
+    return 'Hello World! I have been seen %s times.' % count
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8080))
